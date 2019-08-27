@@ -34,10 +34,6 @@ public class Globals {
         resources.addImage("SimpleEnemy", new Image("simple_enemy.png"));
         resources.addImage("PowerUpBerry", new Image("simple_powerup.png"));
         resources.addImage("Background", new Image("background.png"));
-        resources.addImage("SnakeHeadClosedUp", new Image("snake_head_closed_up.png"));
-        resources.addImage("SnakeHeadClosedDown", new Image("snake_head_closed_down.png"));
-        resources.addImage("SnakeHeadClosedLeft", new Image("snake_head_closed_left.png"));
-        resources.addImage("SnakeHeadClosedRight", new Image("snake_head_closed_right.png"));
     }
 
     public Image getImage(String name) { return resources.getImage(name); }

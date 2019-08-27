@@ -1,5 +1,6 @@
 package com.codecool.snake.entities.snakes;
 
+import com.codecool.snake.Utils;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.Globals;
 import javafx.geometry.Point2D;

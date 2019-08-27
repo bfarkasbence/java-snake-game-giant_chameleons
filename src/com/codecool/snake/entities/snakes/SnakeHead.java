@@ -20,7 +20,7 @@ public class SnakeHead extends GameEntity implements Interactable {
         setPosition(position);
     }
 
-    public void updateRotation(SnakeControl turnDirection, float speed) {
+    public void updateRotation(SnakeControl turnDirection, double speed) {
         double headRotation = getRotate();
 
         if (turnDirection.equals(SnakeControl.TURN_LEFT)) {
