@@ -70,7 +70,7 @@ public class Snake implements Animatable {
     private void updateSnakeBodyHistory() {
         GameEntity prev = head;
         for(GameEntity currentPart : body.getList()) {
-            if (currentPart.getX() != prev.getX() || currentPart.getY() != prev.getY()){
+            if (currentPart.getX() == prev.getX() || currentPart.getY() == prev.getY()){
                 currentPart.setRotate(prev.getRotate());
             }
             currentPart.setPosition(prev.getPosition());
