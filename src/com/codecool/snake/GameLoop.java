@@ -6,6 +6,7 @@ import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.snakes.Snake;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class GameLoop {
     private Snake snake;
@@ -23,7 +24,9 @@ public class GameLoop {
 
     public void step() {
         if(running) {
+
             snake.step();
+
             for (GameEntity gameObject : Globals.getInstance().display.getObjectList()) {
                 if (gameObject instanceof Animatable) {
                     ((Animatable) gameObject).step();
