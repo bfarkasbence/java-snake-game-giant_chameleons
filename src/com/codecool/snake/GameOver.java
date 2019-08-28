@@ -10,8 +10,8 @@ public class GameOver extends GameEntity{
 
     GameOver(){
         setImage(Globals.getInstance().getImage("GameOver"));
-        double preX = 100;
-        double preY = 50;
+        double preX = 0;
+        double preY = 0;
         setX(preX);
         setY(preY);
 

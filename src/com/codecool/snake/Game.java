@@ -3,7 +3,6 @@ package com.codecool.snake;
 import com.codecool.snake.entities.powerups.ExtraPowerUp;
 import com.codecool.snake.GameOver;
 import com.codecool.snake.entities.GameEntity;
-import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.powerups.SimplePowerUp;
 import com.codecool.snake.entities.snakes.Snake;
 import com.codecool.snake.eventhandler.InputHandler;
