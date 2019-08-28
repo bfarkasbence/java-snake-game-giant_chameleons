@@ -15,7 +15,7 @@ public class SnakeHead extends GameEntity implements Interactable {
 
     public SnakeHead(Snake snake, Point2D position) {
         this.snake = snake;
-        setImage(Globals.getInstance().getImage("SnakeHead"));
+        setImage(Globals.getInstance().getImage("SnakeHeadDownRight"));
         setPosition(position);
     }
 
@@ -24,22 +24,26 @@ public class SnakeHead extends GameEntity implements Interactable {
 
         if (turnDirection.equals(SnakeControl.TURN_LEFT)) {
             if (headRotation != 90) {
+                setImage(Globals.getInstance().getImage("SnakeHeadUpLeft"));
                 headRotation = 270;
             }
         }
 
         if (turnDirection.equals(SnakeControl.TURN_RIGHT)) {
             if (headRotation != 270) {
+                setImage(Globals.getInstance().getImage("SnakeHeadDownRight"));
                 headRotation = 90;
             }
         }
         if (turnDirection.equals(SnakeControl.TURN_UP)) {
             if (headRotation != 180) {
+                setImage(Globals.getInstance().getImage("SnakeHeadDownRight"));
                 headRotation = 0;
             }
         }
         if (turnDirection.equals(SnakeControl.TURN_DOWN)) {
             if (headRotation != 0) {
+                setImage(Globals.getInstance().getImage("SnakeHeadUpLeft"));
                 headRotation = 180;
             }
         }

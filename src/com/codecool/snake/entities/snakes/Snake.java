@@ -89,8 +89,13 @@ public class Snake implements Animatable {
         GameEntity prev = head;
         for(GameEntity currentPart : body.getList()) {
             if (currentPart.getX() == prev.getX() || currentPart.getY() == prev.getY()){
+                if (currentPart.getX() < prev.getX() || currentPart.getY() > prev.getY()){
+                    currentPart.setImage(Globals.getInstance().getImage("SnakeBodyUpLeft"));
+                }
+                if (currentPart.getX() > prev.getX() || currentPart.getY() < prev.getY()){
+                    currentPart.setImage(Globals.getInstance().getImage("SnakeBodyDownRight"));
+                }
                 currentPart.setRotate(prev.getRotate());
-                //currentPart.setImage(Globals.getInstance().getImage("SimpleEnemy"));
             }
 
             currentPart.setPosition(prev.getPosition());

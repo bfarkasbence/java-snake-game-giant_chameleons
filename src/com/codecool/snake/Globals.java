@@ -32,9 +32,13 @@ public class Globals {
     public void setupResources() {
         resources = new Resources();
         resources.addImage("SnakeHead", new Image("snake_head.png"));
+        resources.addImage("SnakeHeadUpLeft", new Image("snake_head_up_left.png"));
+        resources.addImage("SnakeHeadDownRight", new Image("snake_head_down_right.png"));
         resources.addImage("SnakeBody", new Image("snake_body.png"));
+        resources.addImage("SnakeBodyUpLeft", new Image("snake_body_up_left.png"));
+        resources.addImage("SnakeBodyDownRight", new Image("snake_body_down_right.png"));
         resources.addImage("SimpleEnemy", new Image("simple_enemy.png"));
-        resources.addImage("PowerUpBerry", new Image("simple_powerup.png"));
+        resources.addImage("PowerUpBerry", new Image("simple_power_up.png"));
         resources.addImage("Background", new Image("background.png"));
         resources.addImage("ExtraBerry1", new Image("extra_berry1.png"));
         resources.addImage("ExtraBerry2", new Image("extra_berry2.png"));
