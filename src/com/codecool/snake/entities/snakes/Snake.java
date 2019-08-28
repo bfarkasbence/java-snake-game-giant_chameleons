@@ -5,6 +5,7 @@ import com.codecool.snake.Globals;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.eventhandler.InputHandler;
+import com.codecool.snake.Game;
 
 import javafx.geometry.Point2D;
 import javafx.scene.input.KeyCode;
@@ -60,6 +61,7 @@ public class Snake implements Animatable {
     private void checkForGameOverConditions() {
         if (head.isOutOfBounds() || health <= 0) {
             System.out.println("Game Over");
+            Game.spawnGameOver();
             Globals.getInstance().stopGame();
         }
     }

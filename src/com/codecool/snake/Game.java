@@ -1,18 +1,25 @@
 package com.codecool.snake;
 
+import com.codecool.snake.GameOver;
+import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.powerups.SimplePowerUp;
 import com.codecool.snake.entities.snakes.Snake;
 import com.codecool.snake.eventhandler.InputHandler;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 
 public class Game extends Pane {
     private Snake snake = null;
     private GameTimer gameTimer = new GameTimer();
+
 
 
     public Game() {
@@ -37,6 +44,7 @@ public class Game extends Pane {
     public void start() {
         setupInputHandling();
         Globals.getInstance().startGame();
+
     }
 
     private void spawnSnake() {
@@ -55,5 +63,11 @@ public class Game extends Pane {
         Scene scene = getScene();
         scene.setOnKeyPressed(event -> InputHandler.getInstance().setKeyPressed(event.getCode()));
         scene.setOnKeyReleased(event -> InputHandler.getInstance().setKeyReleased(event.getCode()));
+
     }
+    public static void spawnGameOver(){
+        new GameOver();
+    }
+
+
 }
