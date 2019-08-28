@@ -8,6 +8,7 @@ import com.codecool.snake.eventhandler.InputHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 
 
 public class Game extends Pane {
@@ -25,7 +26,6 @@ public class Game extends Pane {
 
     public void init() {
         spawnSnake();
-
         GameLoop gameLoop = new GameLoop(snake);
         Globals.getInstance().setGameLoop(gameLoop);
         gameTimer.setup(gameLoop::step);
@@ -39,10 +39,6 @@ public class Game extends Pane {
 
     private void spawnSnake() {
         snake = new Snake(new Point2D(501, 501));
-    }
-
-    private void spawnSimplePowerUps() {
-            new SimplePowerUp();
     }
 
     private void setupInputHandling() {

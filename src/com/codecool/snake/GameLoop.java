@@ -6,6 +6,7 @@ import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.powerups.ExtraPowerUp;
 import com.codecool.snake.entities.powerups.SimplePowerUp;
 import com.codecool.snake.entities.snakes.Snake;
+import javafx.scene.text.Text;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -26,6 +27,8 @@ public class GameLoop {
     }
 
     public void step() {
+        Text text1 = new Text(25, 25, "");
+        Globals.getInstance().game.getChildren().add(text1);
         snake.step();
         int numberOfPowerUps = 0;
         for (GameEntity gameObject : Globals.getInstance().display.getObjectList()) {
@@ -41,8 +44,8 @@ public class GameLoop {
         checkCollisions();
         if (numberOfPowerUps < 1) {
             simplePowerUpCounter++;
-            System.out.println(simplePowerUpCounter);
             new SimplePowerUp();
+            text1.setText("Score: "+ snake.getScore());
             if(simplePowerUpCounter % 5 == 0){
                 new ExtraPowerUp();
             }

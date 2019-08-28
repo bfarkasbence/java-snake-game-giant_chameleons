@@ -11,6 +11,7 @@ import static com.codecool.snake.Random.Util.getRandomBerryName;
 
 public class ExtraPowerUp extends GameEntity implements Interactable {
     private static Random rnd = new Random();
+    private final int score = 30;
 
     public ExtraPowerUp() {
         setImage(Globals.getInstance().getImage(getRandomBerryName()));
@@ -29,6 +30,8 @@ public class ExtraPowerUp extends GameEntity implements Interactable {
 
     @Override
     public String getMessage() {
-        return "Got extra power-up :)";
+        return " ";
     }
+
+    public int getScore() { return score; }
 }

@@ -9,6 +9,7 @@ import java.util.Random;
 
 public class SimplePowerUp extends GameEntity implements Interactable {
     private static Random rnd = new Random();
+    private final int score = 10;
 
     public SimplePowerUp() {
         setImage(Globals.getInstance().getImage("PowerUpBerry"));
@@ -27,6 +28,8 @@ public class SimplePowerUp extends GameEntity implements Interactable {
 
     @Override
     public String getMessage() {
-        return "Got power-up :)";
+        return " ";
     }
+
+    public int getScore() { return score; }
 }
