@@ -25,7 +25,11 @@ public class Snake implements Animatable {
         head = new SnakeHead(this, position);
         body = new DelayedModificationList<>();
 
-        addPart(4);
+        addPart(2);
+    }
+
+    public DelayedModificationList<GameEntity> getBody() {
+        return body;
     }
 
     public void step() {
@@ -47,7 +51,7 @@ public class Snake implements Animatable {
 
         head.updateRotation(turnDir, speed);
 
-        updateSnakeBodyHistory(turnDir);
+        updateSnakeBodyHistory();
         checkForGameOverConditions();
 
         body.doPendingModifications();
@@ -85,7 +89,7 @@ public class Snake implements Animatable {
         }
     }
 
-    private void updateSnakeBodyHistory(SnakeControl turnDirection) {
+    private void updateSnakeBodyHistory() {
         GameEntity prev = head;
         for(GameEntity currentPart : body.getList()) {
             if (currentPart.getX() == prev.getX() || currentPart.getY() == prev.getY()){
@@ -102,6 +106,8 @@ public class Snake implements Animatable {
             prev = currentPart;
         }
     }
+
+
 
     private GameEntity getLastPart() {
         GameEntity result = body.getLast();

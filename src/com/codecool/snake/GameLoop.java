@@ -38,7 +38,7 @@ public class GameLoop {
                 }
             }
         }
-        checkCollisions();
+        checkCollisions(Globals.getInstance().display.getObjectList());
         if (numberOfPowerUps < 1) {
             simplePowerUpCounter++;
             System.out.println(simplePowerUpCounter);
@@ -51,8 +51,8 @@ public class GameLoop {
         Globals.getInstance().display.frameFinished();
     }
 
-    private void checkCollisions() {
-        List<GameEntity> gameObjs = Globals.getInstance().display.getObjectList();
+    private void checkCollisions(List<GameEntity> gameObjs) {
+       // List<GameEntity> gameObjs = ;
         for (int idxToCheck = 0; idxToCheck < gameObjs.size(); ++idxToCheck) {
             GameEntity objToCheck = gameObjs.get(idxToCheck);
             if (objToCheck instanceof Interactable) {

@@ -51,8 +51,26 @@ public class SnakeHead extends GameEntity implements Interactable {
         // set rotation and position
         setRotate(headRotation);
         Point2D heading = Utils.directionToVector(headRotation, speed);
-        setX(getX() + heading.getX());
-        setY(getY() + heading.getY());
+        if (getX() + heading.getX() > 800) {
+            setX(0);
+        }
+        else if (getX() + heading.getX() < 0) {
+            setX(798);
+        }
+        else
+        {
+            setX(getX() + heading.getX());
+        }
+        if (getY() + heading.getY() > 600) {
+            setY(0);
+        }
+        else if (getY() + heading.getY() < 0) {
+            setY(600);
+        }
+        else
+        {
+            setY(getY() + heading.getY());
+        }
     }
 
     @Override
@@ -60,6 +78,10 @@ public class SnakeHead extends GameEntity implements Interactable {
         if(entity instanceof SimplePowerUp){
             System.out.println(getMessage());
             snake.addPart(1);
+        }
+        if(entity instanceof SnakeBody) {
+            if (entity != snake.getBody().getList().get(0) && entity != snake.getBody().getList().get(1) )
+            snake.changeHealth(-100);
         }
     }
 
