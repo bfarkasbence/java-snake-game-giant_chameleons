@@ -41,6 +41,7 @@ public class GameLoop {
         checkCollisions();
         if (numberOfPowerUps < 1) {
             simplePowerUpCounter++;
+            System.out.println(simplePowerUpCounter);
             new SimplePowerUp();
             if(simplePowerUpCounter % 5 == 0){
                 new ExtraPowerUp();
