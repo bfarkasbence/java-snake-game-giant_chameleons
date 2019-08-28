@@ -2,7 +2,7 @@ package com.codecool.snake.entities;
 
 import com.codecool.snake.Globals;
 
-import com.sun.javafx.geom.Vec2d;
+import javafx.geometry.Point2D;
 import javafx.scene.image.ImageView;
 
 // The base class for every game entity.
@@ -16,13 +16,13 @@ public abstract class GameEntity extends ImageView {
         Globals.getInstance().display.remove(this);
     }
 
-    public Vec2d getPosition() {
-        return new Vec2d(getX(), getY());
+    public Point2D getPosition() {
+        return new Point2D(getX(), getY());
     }
 
-    public void setPosition(Vec2d pos) {
-        setX(pos.x);
-        setY(pos.y);
+    public void setPosition(Point2D pos) {
+        setX(pos.getX());
+        setY(pos.getY());
     }
 
     public boolean isOutOfBounds() {

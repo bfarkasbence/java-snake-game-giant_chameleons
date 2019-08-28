@@ -8,14 +8,16 @@ import javafx.scene.layout.Pane;
 public class Globals {
     private static Globals instance = null;
 
-    public static final double WINDOW_WIDTH = 1000;
-    public static final double WINDOW_HEIGHT = 700;
+    public static final double WINDOW_WIDTH = 800;
+    public static final double WINDOW_HEIGHT = 600;
 
     public Display display;
     public Game game;
 
     private GameLoop gameLoop;
     private Resources resources;
+
+
 
 
     public static Globals getInstance() {
@@ -32,7 +34,12 @@ public class Globals {
         resources.addImage("SnakeHead", new Image("snake_head.png"));
         resources.addImage("SnakeBody", new Image("snake_body.png"));
         resources.addImage("SimpleEnemy", new Image("simple_enemy.png"));
-        resources.addImage("PowerUpBerry", new Image("powerup_berry.png"));
+        resources.addImage("PowerUpBerry", new Image("simple_powerup.png"));
+        resources.addImage("Background", new Image("background.png"));
+        resources.addImage("ExtraBerry1", new Image("extra_berry1.png"));
+        resources.addImage("ExtraBerry2", new Image("extra_berry2.png"));
+        resources.addImage("ExtraBerry3", new Image("extra_berry3.png"));
+        resources.addImage("ExtraBerry4", new Image("extra_berry4.png"));
     }
 
     public Image getImage(String name) { return resources.getImage(name); }

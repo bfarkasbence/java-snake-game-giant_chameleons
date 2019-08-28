@@ -12,6 +12,7 @@ public class Display {
 
     public Display(Pane pane) {
         displayPane = pane;
+        pane.setStyle("-fx-background-color: #96d202;");
     }
 
     public void add(GameEntity entity) {

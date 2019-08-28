@@ -4,10 +4,8 @@ import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.Globals;
 import com.codecool.snake.Utils;
 import com.codecool.snake.entities.Interactable;
-import com.codecool.snake.entities.enemies.Enemy;
 import com.codecool.snake.entities.powerups.SimplePowerUp;
 
-import com.sun.javafx.geom.Vec2d;
 import javafx.geometry.Point2D;
 
 
@@ -15,20 +13,35 @@ public class SnakeHead extends GameEntity implements Interactable {
     private static final float turnRate = 2;
     private Snake snake;
 
-    public SnakeHead(Snake snake, Vec2d position) {
+    public SnakeHead(Snake snake, Point2D position) {
         this.snake = snake;
         setImage(Globals.getInstance().getImage("SnakeHead"));
         setPosition(position);
     }
 
-    public void updateRotation(SnakeControl turnDirection, float speed) {
+    public void updateRotation(SnakeControl turnDirection, double speed) {
         double headRotation = getRotate();
 
         if (turnDirection.equals(SnakeControl.TURN_LEFT)) {
-            headRotation = headRotation - turnRate;
+            if (headRotation != 90) {
+                headRotation = 270;
+            }
         }
+
         if (turnDirection.equals(SnakeControl.TURN_RIGHT)) {
-            headRotation = headRotation + turnRate;
+            if (headRotation != 270) {
+                headRotation = 90;
+            }
+        }
+        if (turnDirection.equals(SnakeControl.TURN_UP)) {
+            if (headRotation != 180) {
+                headRotation = 0;
+            }
+        }
+        if (turnDirection.equals(SnakeControl.TURN_DOWN)) {
+            if (headRotation != 0) {
+                headRotation = 180;
+            }
         }
 
         // set rotation and position
@@ -40,13 +53,9 @@ public class SnakeHead extends GameEntity implements Interactable {
 
     @Override
     public void apply(GameEntity entity) {
-        if(entity instanceof Enemy){
-            System.out.println(getMessage());
-            snake.changeHealth(((Enemy) entity).getDamage());
-        }
         if(entity instanceof SimplePowerUp){
             System.out.println(getMessage());
-            snake.addPart(4);
+            snake.addPart(1);
         }
     }
 
