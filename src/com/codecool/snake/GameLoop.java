@@ -3,6 +3,8 @@ package com.codecool.snake;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.Interactable;
+import com.codecool.snake.entities.powerups.ExtraPowerUp;
+import com.codecool.snake.entities.powerups.SimplePowerUp;
 import com.codecool.snake.entities.snakes.Snake;
 
 import java.util.List;
@@ -10,8 +12,11 @@ import java.util.List;
 public class GameLoop {
     private Snake snake;
     private boolean running = false;
+    private int simplePowerUpCounter = 0;
 
-    public GameLoop(Snake snake) { this.snake = snake; }
+    public GameLoop(Snake snake) {
+        this.snake = snake;
+    }
 
     public void start() {
         running = true;
@@ -22,16 +27,28 @@ public class GameLoop {
     }
 
     public void step() {
-        if(running) {
-            snake.step();
-            for (GameEntity gameObject : Globals.getInstance().display.getObjectList()) {
-                if (gameObject instanceof Animatable) {
-                    ((Animatable) gameObject).step();
-                }
+        snake.step();
+        int numberOfPowerUps = 0;
+        for (GameEntity gameObject : Globals.getInstance().display.getObjectList()) {
+            if (gameObject instanceof Animatable) {
+                ((Animatable) gameObject).step();
             }
-            checkCollisions();
-        }
+            if (gameObject instanceof Interactable) {
+                if (gameObject instanceof SimplePowerUp) {
+                    numberOfPowerUps = 1;
+                }
 
+            }
+        }
+        checkCollisions();
+        if (numberOfPowerUps < 1) {
+            simplePowerUpCounter++;
+            new SimplePowerUp();
+            if(simplePowerUpCounter % 5 == 0){
+                new ExtraPowerUp();
+            }
+
+        }
         Globals.getInstance().display.frameFinished();
     }
 

@@ -13,7 +13,6 @@ import javafx.scene.layout.Pane;
 public class Game extends Pane {
     private Snake snake = null;
     private GameTimer gameTimer = new GameTimer();
-    private int simplePowerUpCounter = 1;
 
 
     public Game() {
@@ -26,8 +25,6 @@ public class Game extends Pane {
 
     public void init() {
         spawnSnake();
-        spawnSimplePowerUps();
-        spawnExtraPowerUps();
 
         GameLoop gameLoop = new GameLoop(snake);
         Globals.getInstance().setGameLoop(gameLoop);
@@ -46,13 +43,6 @@ public class Game extends Pane {
 
     private void spawnSimplePowerUps() {
             new SimplePowerUp();
-            simplePowerUpCounter++;
-    }
-
-    private void spawnExtraPowerUps() {
-        if(simplePowerUpCounter % 5 == 0) {
-            new ExtraPowerUp();
-        }
     }
 
     private void setupInputHandling() {
