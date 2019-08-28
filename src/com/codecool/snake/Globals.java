@@ -20,6 +20,7 @@ public class Globals {
 
 
 
+
     public static Globals getInstance() {
         if(instance == null) instance = new Globals();
         return instance;
@@ -38,6 +39,8 @@ public class Globals {
         resources.addImage("SnakeBodyUpLeft", new Image("snake_body_up_left.png"));
         resources.addImage("SnakeBodyDownRight", new Image("snake_body_down_right.png"));
         resources.addImage("SimpleEnemy", new Image("simple_enemy.png"));
+        resources.addImage("PowerUpBerry", new Image("powerup_berry.png"));
+        resources.addImage("GameOver", new Image("gamover.png"));
         resources.addImage("PowerUpBerry", new Image("simple_power_up.png"));
         resources.addImage("Background", new Image("background.png"));
         resources.addImage("ExtraBerry1", new Image("extra_berry1.png"));
