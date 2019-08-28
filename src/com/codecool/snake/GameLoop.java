@@ -8,15 +8,14 @@ import com.codecool.snake.entities.powerups.SimplePowerUp;
 import com.codecool.snake.entities.snakes.Snake;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class GameLoop {
     private Snake snake;
     private boolean running = false;
     private int simplePowerUpCounter = 0;
 
-    public GameLoop(Snake snake) {
-        this.snake = snake;
-    }
+    public GameLoop(Snake snake) { this.snake = snake; }
 
     public void start() {
         running = true;
@@ -37,7 +36,6 @@ public class GameLoop {
                 if (gameObject instanceof SimplePowerUp) {
                     numberOfPowerUps = 1;
                 }
-
             }
         }
         checkCollisions();
