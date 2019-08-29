@@ -53,7 +53,7 @@ public class Globals {
 
     public void startGame() { gameLoop.start(); }
 
-    public void stopGame() { gameLoop.stop(); }
+    public void stopGame() { gameLoop.stop();}
 
     private Globals() {
         // singleton needs the class to have private constructor

@@ -52,7 +52,6 @@ public class GameLoop {
     }
 
     private void checkCollisions(List<GameEntity> gameObjs) {
-       // List<GameEntity> gameObjs = ;
         for (int idxToCheck = 0; idxToCheck < gameObjs.size(); ++idxToCheck) {
             GameEntity objToCheck = gameObjs.get(idxToCheck);
             if (objToCheck instanceof Interactable) {
